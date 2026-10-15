@@ -1,0 +1,66 @@
+# template.yaml - starter skin.
+#
+# Copy this file to skins/<your-name>.yaml and fill in values. Missing values
+# inherit from the built-in default skin. See docs/skins.md for the schema.
+#
+# Use the brand palette from branding/BRAND-TOKENS.yaml.
+# A skin is data only: no scripts, no commands, no machine identifiers.
+
+name: template
+description: A starter skin
+
+colors:
+  banner_border: "#2a2e37"
+  banner_title: "#3d78d9"
+  banner_accent: "#6ea8fe"
+  banner_dim: "#99a0ab"
+  banner_text: "#e6e8ec"
+  ui_accent: "#3d78d9"
+  ui_label: "#6ea8fe"
+  ui_ok: "#22c55e"
+  ui_error: "#f2382e"
+  ui_warn: "#f59e0b"
+  prompt: "#e6e8ec"
+  input_rule: "#2a2e37"
+  response_border: "#3d78d9"
+  session_label: "#99a0ab"
+  session_border: "#2a2e37"
+  status_bar_bg: "#13151b"
+  voice_status_bg: "#13151b"
+  selection_bg: "#1c2029"
+  completion_menu_bg: "#171a21"
+  completion_menu_current_bg: "#1c2029"
+  completion_menu_meta_bg: "#171a21"
+  completion_menu_meta_current_bg: "#1c2029"
+
+spinner:
+  waiting_faces:
+    - "(·)"
+    - "(o)"
+    - "(O)"
+  thinking_faces:
+    - "(⌁)"
+    - "(◇)"
+    - "(◆)"
+  thinking_verbs:
+    - "reasoning"
+    - "recalling"
+    - "routing"
+    - "verifying"
+    - "grounding"
+  wings:
+    - ["⟪", "⟫"]
+
+branding:
+  agent_name: ".tokn"
+  welcome: ".tokn · sovereign agent control. Type your message, or /help for commands."
+  goodbye: "Sovereign session closed."
+  response_label: " .tokn "
+  prompt_symbol: "›"
+  help_header: "(·) .tokn commands"
+
+tool_prefix: "│"
+tool_emojis:
+  terminal: "▸"
+  web_search: "◉"
+  read_file: "▤"

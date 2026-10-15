@@ -1,0 +1,75 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate plugin shape, imports, and banned content
+        run: |
+          node - <<'EOF'
+          const fs = require('node:fs');
+          const path = require('node:path');
+
+          function walk(dir, out = []) {
+            for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+              const p = path.join(dir, ent.name);
+              if (ent.isDirectory()) walk(p, out);
+              else out.push(p);
+            }
+            return out;
+          }
+
+          const ALLOWED = new Set(['@hermes/plugin-sdk', 'react', 'react/jsx-runtime']);
+          const BANNED_WORDS = /\b(billing|ledger|gateway)\b/i;
+          const BANNED_KEYS = /\b(api_key|apikey|connection\.json)\b/i;
+          const BANNED_LAN = /127\.0\.0\.1|\b10\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/;
+
+          const plugins = walk('plugins').filter((p) => p.endsWith('.js'));
+          const data = [...walk('skins'), ...walk('branding')];
+
+          let failed = false;
+          const fail = (msg) => { failed = true; console.error('FAIL ' + msg); };
+
+          for (const file of plugins) {
+            const source = fs.readFileSync(file, 'utf8');
+            const block = source.match(/export\s+default\s*\{[\s\S]*?\n\}/);
+            if (!block) { fail(`${file}: missing default export object`); continue; }
+            if (!/id:\s*['"][^'"]+['"]/.test(block[0])) fail(`${file}: default export needs id`);
+            if (!/register\s*\(/.test(block[0])) fail(`${file}: default export needs register(ctx)`);
+            if (!/name:\s*['"]/.test(block[0])) fail(`${file}: default export needs name`);
+
+            for (const stmt of source.match(/^\s*import\b[^\n]*/gm) || []) {
+              const m = stmt.match(/from\s+['"]([^'"]+)['"]/);
+              if (!m) { fail(`${file}: unparseable import ${stmt}`); continue; }
+              if (!ALLOWED.has(m[1])) fail(`${file}: import ${m[1]} not on allowlist`);
+            }
+
+            for (const [label, re] of [['banned-word', BANNED_WORDS], ['banned-key', BANNED_KEYS], ['banned-lan', BANNED_LAN]]) {
+              if (re.test(source)) fail(`${file}: ${label} scan`);
+            }
+          }
+
+          for (const file of data) {
+            const source = fs.readFileSync(file, 'utf8');
+            for (const [label, re] of [['banned-word', BANNED_WORDS], ['banned-key', BANNED_KEYS], ['banned-lan', BANNED_LAN]]) {
+              if (re.test(source)) fail(`${file}: ${label} scan`);
+            }
+          }
+
+          if (failed) process.exit(1);
+          console.log(`ok: ${plugins.length} plugin(s), ${data.length} data file(s) validated`);
+          EOF
+
+      - name: Harness tests
+        run: node --test tests/harness.test.cjs

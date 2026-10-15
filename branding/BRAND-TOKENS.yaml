@@ -1,0 +1,17 @@
+# White-label brand tokens (sanitized public copy).
+#
+# Source of truth for surface.tokn and the quantum chalkboard. This public
+# copy keeps only the design tokens. The internal install map and update
+# steps live in the private prompts.ai tree and are intentionally absent.
+#
+# Icon struct blue is rgb(61,120,217) from dashboard/tokn-shield.svg
+# .glass-struct.
+
+signal: "#3d78d9"
+signal_rgb: "61,120,217"
+signal_source: "tokn-shield.svg glass-struct / display-p3 0.24 0.47 0.85"
+retired_teal: "#14b8a6"
+light_blue: "#6ea8fe"
+board: "#13151b"
+ink: "#e6e8ec"
+success: "#22c55e"
