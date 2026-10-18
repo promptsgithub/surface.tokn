@@ -1,0 +1,79 @@
+# Spacey — X/Twitter-style competitor skin.
+# Refero style 655340ae-abff-4a90-8545-8feb62411f68 (X design system).
+# X Blue #1D9BF0, Ink Black #0F1419, Charcoal #4B4F53, Graphite #536471,
+# Fog Gray #829AAB, Hairline Gray #CFD9DE, Mist Gray #EFF3F4, Paper White #FFFFFF.
+
+name: spacey
+description: Spacey — X-inspired
+
+colors:
+  background: "#0f1419"
+  banner_border: "#536471"
+  banner_title: "#1d9bf0"
+  banner_accent: "#1d9bf0"
+  banner_dim: "#829aab"
+  banner_text: "#eff3f4"
+  ui_accent: "#1d9bf0"
+  ui_label: "#1d9bf0"
+  ui_ok: "#22c55e"
+  ui_error: "#ef5350"
+  ui_warn: "#f59e0b"
+  ui_tool: "#1d9bf0"
+  ui_thinking: "#829aab"
+  diff_added: "#22c55e"
+  diff_removed: "#ef5350"
+  diff_added_word: "#15803d"
+  diff_removed_word: "#c62828"
+  syntax_string: "#1d9bf0"
+  syntax_number: "#eff3f4"
+  syntax_keyword: "#1d9bf0"
+  syntax_comment: "#829aab"
+  prompt: "#eff3f4"
+  input_rule: "#536471"
+  response_border: "#1d9bf0"
+  status_bar_bg: "#0f1419"
+  status_bar_text: "#eff3f4"
+  status_bar_strong: "#1d9bf0"
+  status_bar_dim: "#829aab"
+  status_bar_good: "#22c55e"
+  status_bar_warn: "#f59e0b"
+  status_bar_bad: "#f59e0b"
+  status_bar_critical: "#ef5350"
+  session_label: "#1d9bf0"
+  session_border: "#4b4f53"
+  voice_status_bg: "#0f1419"
+  selection_bg: "#1c2833"
+  completion_menu_bg: "#0f1419"
+  completion_menu_current_bg: "#1c2833"
+  completion_menu_meta_bg: "#0f1419"
+  completion_menu_meta_current_bg: "#1c2833"
+
+spinner:
+  waiting_faces:
+    - "(·)"
+    - "(o)"
+    - "(O)"
+  thinking_faces:
+    - "(⌁)"
+    - "(◇)"
+    - "(◆)"
+  thinking_verbs:
+    - "thinking"
+    - "recalling"
+    - "routing"
+  wings:
+    - ["⟪", "⟫"]
+
+branding:
+  agent_name: "surface.tokn"
+  welcome: "surface.tokn · Spacey skin. Type a message, or /help for commands."
+  goodbye: "Session closed."
+  response_label: " surface.tokn "
+  prompt_symbol: "›"
+  help_header: "(·) surface.tokn commands"
+
+tool_prefix: "│"
+tool_emojis:
+  terminal: "▸"
+  web_search: "◉"
+  read_file: "▤"

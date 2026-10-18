@@ -1,0 +1,79 @@
+# Parchment — Anthropic-style competitor skin.
+# Refero style d469cba4-c448-4a43-a033-883f8bfcdc42 (Anthropic design system).
+# Terracotta #D97757, Clay Deep #C6613F, Slate Dark #141413, Slate Medium #3D3D3A,
+# Cloud Dark #87867F, Stone #CCCBC8, Ivory Medium #F0EEE6, Ivory Light #FAF9F5.
+
+name: parchment
+description: Parchment — Anthropic-inspired
+
+colors:
+  background: "#141413"
+  banner_border: "#3d3d3a"
+  banner_title: "#d97757"
+  banner_accent: "#c6613f"
+  banner_dim: "#87867f"
+  banner_text: "#f0eee6"
+  ui_accent: "#d97757"
+  ui_label: "#c6613f"
+  ui_ok: "#22c55e"
+  ui_error: "#ef5350"
+  ui_warn: "#f59e0b"
+  ui_tool: "#d97757"
+  ui_thinking: "#87867f"
+  diff_added: "#22c55e"
+  diff_removed: "#ef5350"
+  diff_added_word: "#15803d"
+  diff_removed_word: "#c62828"
+  syntax_string: "#d97757"
+  syntax_number: "#f0eee6"
+  syntax_keyword: "#c6613f"
+  syntax_comment: "#87867f"
+  prompt: "#f0eee6"
+  input_rule: "#3d3d3a"
+  response_border: "#d97757"
+  status_bar_bg: "#141413"
+  status_bar_text: "#f0eee6"
+  status_bar_strong: "#d97757"
+  status_bar_dim: "#87867f"
+  status_bar_good: "#22c55e"
+  status_bar_warn: "#f59e0b"
+  status_bar_bad: "#f59e0b"
+  status_bar_critical: "#ef5350"
+  session_label: "#d97757"
+  session_border: "#3d3d3a"
+  voice_status_bg: "#141413"
+  selection_bg: "#2a2926"
+  completion_menu_bg: "#141413"
+  completion_menu_current_bg: "#2a2926"
+  completion_menu_meta_bg: "#141413"
+  completion_menu_meta_current_bg: "#2a2926"
+
+spinner:
+  waiting_faces:
+    - "(·)"
+    - "(o)"
+    - "(O)"
+  thinking_faces:
+    - "(⌁)"
+    - "(◇)"
+    - "(◆)"
+  thinking_verbs:
+    - "thinking"
+    - "recalling"
+    - "routing"
+  wings:
+    - ["⟪", "⟫"]
+
+branding:
+  agent_name: "surface.tokn"
+  welcome: "surface.tokn · Parchment skin. Type a message, or /help for commands."
+  goodbye: "Session closed."
+  response_label: " surface.tokn "
+  prompt_symbol: "›"
+  help_header: "(·) surface.tokn commands"
+
+tool_prefix: "│"
+tool_emojis:
+  terminal: "▸"
+  web_search: "◉"
+  read_file: "▤"

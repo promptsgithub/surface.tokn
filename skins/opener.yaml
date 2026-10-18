@@ -1,0 +1,78 @@
+# Opener — OpenAI-style competitor skin.
+# Refero style dc541737-8bf2-4b31-b729-0352f696e82f (OpenAI design system).
+# Obsidian #000000, Graphite #666666, Smoke #8F8F8F, Elevation #F1F1F1, Paper #FFFFFF.
+
+name: opener
+description: Opener — OpenAI-inspired
+
+colors:
+  background: "#0d0d0d"
+  banner_border: "#666666"
+  banner_title: "#000000"
+  banner_accent: "#666666"
+  banner_dim: "#8f8f8f"
+  banner_text: "#f1f1f1"
+  ui_accent: "#000000"
+  ui_label: "#666666"
+  ui_ok: "#22c55e"
+  ui_error: "#ef5350"
+  ui_warn: "#f59e0b"
+  ui_tool: "#000000"
+  ui_thinking: "#8f8f8f"
+  diff_added: "#22c55e"
+  diff_removed: "#ef5350"
+  diff_added_word: "#15803d"
+  diff_removed_word: "#c62828"
+  syntax_string: "#666666"
+  syntax_number: "#f1f1f1"
+  syntax_keyword: "#000000"
+  syntax_comment: "#8f8f8f"
+  prompt: "#f1f1f1"
+  input_rule: "#666666"
+  response_border: "#000000"
+  status_bar_bg: "#0d0d0d"
+  status_bar_text: "#f1f1f1"
+  status_bar_strong: "#ffffff"
+  status_bar_dim: "#8f8f8f"
+  status_bar_good: "#22c55e"
+  status_bar_warn: "#f59e0b"
+  status_bar_bad: "#f59e0b"
+  status_bar_critical: "#ef5350"
+  session_label: "#666666"
+  session_border: "#666666"
+  voice_status_bg: "#0d0d0d"
+  selection_bg: "#1a1a1a"
+  completion_menu_bg: "#0d0d0d"
+  completion_menu_current_bg: "#1a1a1a"
+  completion_menu_meta_bg: "#0d0d0d"
+  completion_menu_meta_current_bg: "#1a1a1a"
+
+spinner:
+  waiting_faces:
+    - "(·)"
+    - "(o)"
+    - "(O)"
+  thinking_faces:
+    - "(⌁)"
+    - "(◇)"
+    - "(◆)"
+  thinking_verbs:
+    - "thinking"
+    - "recalling"
+    - "routing"
+  wings:
+    - ["⟪", "⟫"]
+
+branding:
+  agent_name: "surface.tokn"
+  welcome: "surface.tokn · Opener skin. Type a message, or /help for commands."
+  goodbye: "Session closed."
+  response_label: " surface.tokn "
+  prompt_symbol: "›"
+  help_header: "(·) surface.tokn commands"
+
+tool_prefix: "│"
+tool_emojis:
+  terminal: "▸"
+  web_search: "◉"
+  read_file: "▤"

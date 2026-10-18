@@ -1,0 +1,79 @@
+# Perplexed — Perplexity-style competitor skin.
+# Refero style 81afaa5c-73ac-4ef4-9a99-296da325ea6c (Perplexity AI design system).
+# Deep Teal #016A71, Warm Black #27251E, Graphite #72706B, Parchment #FAF8F5,
+# Soft Paper #FDFBFA, Warm Mist #D1D1CD.
+
+name: perplexed
+description: Perplexed — Perplexity-inspired
+
+colors:
+  background: "#27251e"
+  banner_border: "#d1d1cd"
+  banner_title: "#016a71"
+  banner_accent: "#016a71"
+  banner_dim: "#92918b"
+  banner_text: "#faf8f5"
+  ui_accent: "#016a71"
+  ui_label: "#016a71"
+  ui_ok: "#22c55e"
+  ui_error: "#ef5350"
+  ui_warn: "#f59e0b"
+  ui_tool: "#016a71"
+  ui_thinking: "#92918b"
+  diff_added: "#22c55e"
+  diff_removed: "#ef5350"
+  diff_added_word: "#15803d"
+  diff_removed_word: "#c62828"
+  syntax_string: "#016a71"
+  syntax_number: "#faf8f5"
+  syntax_keyword: "#016a71"
+  syntax_comment: "#92918b"
+  prompt: "#faf8f5"
+  input_rule: "#d1d1cd"
+  response_border: "#016a71"
+  status_bar_bg: "#27251e"
+  status_bar_text: "#faf8f5"
+  status_bar_strong: "#016a71"
+  status_bar_dim: "#92918b"
+  status_bar_good: "#22c55e"
+  status_bar_warn: "#f59e0b"
+  status_bar_bad: "#f59e0b"
+  status_bar_critical: "#ef5350"
+  session_label: "#016a71"
+  session_border: "#72706b"
+  voice_status_bg: "#27251e"
+  selection_bg: "#3d3a39"
+  completion_menu_bg: "#27251e"
+  completion_menu_current_bg: "#3d3a39"
+  completion_menu_meta_bg: "#27251e"
+  completion_menu_meta_current_bg: "#3d3a39"
+
+spinner:
+  waiting_faces:
+    - "(·)"
+    - "(o)"
+    - "(O)"
+  thinking_faces:
+    - "(⌁)"
+    - "(◇)"
+    - "(◆)"
+  thinking_verbs:
+    - "thinking"
+    - "recalling"
+    - "routing"
+  wings:
+    - ["⟪", "⟫"]
+
+branding:
+  agent_name: "surface.tokn"
+  welcome: "surface.tokn · Perplexed skin. Type a message, or /help for commands."
+  goodbye: "Session closed."
+  response_label: " surface.tokn "
+  prompt_symbol: "›"
+  help_header: "(·) surface.tokn commands"
+
+tool_prefix: "│"
+tool_emojis:
+  terminal: "▸"
+  web_search: "◉"
+  read_file: "▤"

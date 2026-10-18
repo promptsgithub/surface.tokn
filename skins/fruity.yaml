@@ -1,0 +1,79 @@
+# Fruity — Apple-style competitor skin.
+# Refero style aecac5da-f397-4ddf-b71f-de1efc434cb8 (Apple design system).
+# Apple Blue #0071E3, Link Blue #0066CC, Signal Blue #2997FF, Carbon #1D1D1F,
+# Smoke #333333, Graphite #474747, Pebble #E2E2E5, Frost #F5F5F7, Elevated #F4F8FB.
+
+name: fruity
+description: Fruity — Apple-inspired
+
+colors:
+  background: "#1d1d1f"
+  banner_border: "#333333"
+  banner_title: "#0071e3"
+  banner_accent: "#2997ff"
+  banner_dim: "#858585"
+  banner_text: "#f5f5f7"
+  ui_accent: "#0071e3"
+  ui_label: "#2997ff"
+  ui_ok: "#34c759"
+  ui_error: "#ff3b30"
+  ui_warn: "#ff9500"
+  ui_tool: "#0071e3"
+  ui_thinking: "#6ea8fe"
+  diff_added: "#34c759"
+  diff_removed: "#ff3b30"
+  diff_added_word: "#0a7a2f"
+  diff_removed_word: "#b4231a"
+  syntax_string: "#2997ff"
+  syntax_number: "#f5f5f7"
+  syntax_keyword: "#0071e3"
+  syntax_comment: "#858585"
+  prompt: "#f5f5f7"
+  input_rule: "#333333"
+  response_border: "#0071e3"
+  status_bar_bg: "#1d1d1f"
+  status_bar_text: "#e2e2e5"
+  status_bar_strong: "#0071e3"
+  status_bar_dim: "#707070"
+  status_bar_good: "#34c759"
+  status_bar_warn: "#ff9500"
+  status_bar_bad: "#ff9500"
+  status_bar_critical: "#ff3b30"
+  session_label: "#2997ff"
+  session_border: "#474747"
+  voice_status_bg: "#1d1d1f"
+  selection_bg: "#2a2a2c"
+  completion_menu_bg: "#1d1d1f"
+  completion_menu_current_bg: "#2a2a2c"
+  completion_menu_meta_bg: "#1d1d1f"
+  completion_menu_meta_current_bg: "#2a2a2c"
+
+spinner:
+  waiting_faces:
+    - "(·)"
+    - "(o)"
+    - "(O)"
+  thinking_faces:
+    - "(⌁)"
+    - "(◇)"
+    - "(◆)"
+  thinking_verbs:
+    - "thinking"
+    - "recalling"
+    - "routing"
+  wings:
+    - ["◀", "▶"]
+
+branding:
+  agent_name: "surface.tokn"
+  welcome: "surface.tokn · Fruity skin. Type a message, or /help for commands."
+  goodbye: "Session closed."
+  response_label: " surface.tokn "
+  prompt_symbol: "›"
+  help_header: "(·) surface.tokn commands"
+
+tool_prefix: "│"
+tool_emojis:
+  terminal: "▸"
+  web_search: "◉"
+  read_file: "▤"

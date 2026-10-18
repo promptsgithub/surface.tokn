@@ -81,6 +81,8 @@ tool_emojis:
 | `branding.response_label` | Label attached to responses |
 | `branding.prompt_symbol` | Symbol before the prompt |
 | `branding.help_header` | Header for the /help command list |
+| `banner_logo` | Optional ASCII art that replaces the stock startup banner |
+| `banner_hero` | Optional ASCII hero shown under the banner |
 | `tool_prefix` | Prefix drawn before tool calls |
 | `tool_emojis.*` | Emoji or glyph per tool type |
 

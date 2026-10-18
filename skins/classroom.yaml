@@ -1,0 +1,79 @@
+# Classroom — Google-style competitor skin.
+# Refero style c57ba3f8-1d76-4660-8ba4-48ddce26e759 (Google for Education design system).
+# Google Blue #1A73E8, Classroom Green #188038, Charcoal Ink #202124,
+# Graphite #3C4043, Slate #5F6368, Canvas White #F8F9FA, Hairline #DADCE0.
+
+name: classroom
+description: Classroom — Google-inspired
+
+colors:
+  background: "#202124"
+  banner_border: "#5f6368"
+  banner_title: "#1a73e8"
+  banner_accent: "#188038"
+  banner_dim: "#5f6368"
+  banner_text: "#f8f9fa"
+  ui_accent: "#1a73e8"
+  ui_label: "#188038"
+  ui_ok: "#188038"
+  ui_error: "#ea4335"
+  ui_warn: "#f9ab00"
+  ui_tool: "#1a73e8"
+  ui_thinking: "#5f6368"
+  diff_added: "#188038"
+  diff_removed: "#ea4335"
+  diff_added_word: "#0d6427"
+  diff_removed_word: "#b31407"
+  syntax_string: "#1a73e8"
+  syntax_number: "#f8f9fa"
+  syntax_keyword: "#1a73e8"
+  syntax_comment: "#5f6368"
+  prompt: "#f8f9fa"
+  input_rule: "#5f6368"
+  response_border: "#1a73e8"
+  status_bar_bg: "#202124"
+  status_bar_text: "#f8f9fa"
+  status_bar_strong: "#1a73e8"
+  status_bar_dim: "#5f6368"
+  status_bar_good: "#188038"
+  status_bar_warn: "#f9ab00"
+  status_bar_bad: "#f9ab00"
+  status_bar_critical: "#ea4335"
+  session_label: "#188038"
+  session_border: "#3c4043"
+  voice_status_bg: "#202124"
+  selection_bg: "#2c3136"
+  completion_menu_bg: "#202124"
+  completion_menu_current_bg: "#2c3136"
+  completion_menu_meta_bg: "#202124"
+  completion_menu_meta_current_bg: "#2c3136"
+
+spinner:
+  waiting_faces:
+    - "(·)"
+    - "(o)"
+    - "(O)"
+  thinking_faces:
+    - "(⌁)"
+    - "(◇)"
+    - "(◆)"
+  thinking_verbs:
+    - "thinking"
+    - "recalling"
+    - "routing"
+  wings:
+    - ["⟪", "⟫"]
+
+branding:
+  agent_name: "surface.tokn"
+  welcome: "surface.tokn · Classroom skin. Type a message, or /help for commands."
+  goodbye: "Session closed."
+  response_label: " surface.tokn "
+  prompt_symbol: "›"
+  help_header: "(·) surface.tokn commands"
+
+tool_prefix: "│"
+tool_emojis:
+  terminal: "▸"
+  web_search: "◉"
+  read_file: "▤"

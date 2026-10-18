@@ -85,7 +85,7 @@ const res = await host.request('method', { params })
 
 `host.request(method, params)` performs gateway JSON-RPC. Use it for data the
 app already exposes. Do not invent new methods: a plugin may consume existing
-methods only)Skip, never extend the backend.
+methods only, never extend the backend.
 
 Important: `host.listPersistedSessions` does not exist in the current SDK.
 To list sessions, call `host.request('session.list', { ... })`.

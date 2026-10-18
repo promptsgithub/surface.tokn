@@ -1,4 +1,4 @@
-# template.yaml - starter skin.
+# template.yaml: starter skin.
 #
 # Copy this file to skins/<your-name>.yaml and fill in values. Missing values
 # inherit from the built-in default skin. See docs/skins.md for the schema.

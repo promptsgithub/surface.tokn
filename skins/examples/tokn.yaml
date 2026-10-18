@@ -1,4 +1,4 @@
-# tokn.yaml - the canonical .tokn skin (data only).
+# tokn.yaml: the canonical .tokn skin (data only).
 #
 # The sovereign CLI/TUI skin. Quantum chalkboard palette: board #13151b,
 # signal struct blue #3d78d9, ink #e6e8ec. Restrained on purpose: this is
@@ -9,7 +9,7 @@
 # See docs/skins.md for the schema.
 
 name: tokn
-description: .tokn sovereign - Quantum chalkboard
+description: .tokn sovereign, quantum chalkboard
 
 colors:
   banner_border: "#2a2e37"
