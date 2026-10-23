@@ -15,6 +15,13 @@ an automated review so the public repo never becomes a leak of the runtime.
   See `docs/branding.md`.
 - **Documentation** under `docs/`.
 
+## Core plugins (maintainer and Hermes owned)
+
+`core-plugins/` is the maintainer and Hermes-owned lane for shipped surface
+modules. These may call the SDK `host` channel and the app's own RPC surface to
+read runtime state and select a model. They still may not ship provider keys,
+secrets, LAN addresses, internal hostnames, ports, or `connection.json`.
+
 ## What is banned (hard fail, CI enforced)
 
 A contribution fails review if it contains, in any shipped file:
@@ -27,8 +34,10 @@ A contribution fails review if it contains, in any shipped file:
   private LAN IP.
 - References to internal node names, internal hostnames, or internal ports.
 
-CI runs a banned-content scan over `plugins/`, `skins/`, and `branding/`.
-Docs may describe the rules but never ship machine identifiers.
+Student plugins under `plugins/` are scanned for the word list, keys, and LAN
+topology. Core plugins under `core-plugins/`, plus `skins/` and `branding/`, are
+scanned for keys, LAN topology, and connection stores. Docs may describe the
+rules but never ship machine identifiers.
 
 ## Review gating
 

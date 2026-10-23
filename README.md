@@ -15,7 +15,8 @@ reference it.
 
 | Path | What it is | Where it lands on a live machine |
 |---|---|---|
-| `plugins/` | Desktop plugins: panes and status bar add-ons | `~/.hermes/desktop-plugins/<name>/plugin.js` |
+| `plugins/` | Student desktop plugins: panes and status bar add-ons | `~/.hermes/desktop-plugins/<name>/plugin.js` |
+| `core-plugins/` | Maintainer and Hermes-owned surface modules: shipped shell panes and plugins | `~/.hermes/desktop-plugins/<name>/plugin.js` |
 | `skins/` | TUI skins (colors, spinner, branding) | `~/.hermes/skins/<name>.yaml` |
 | `branding/` | Brand tokens (colors, logo rules) | reference copy, applied with skins |
 | `docs/` | SDK contract, skin schema, branding rules, apply pipeline | documentation only |
@@ -24,12 +25,15 @@ A live surface is a Hermes desktop app (`surface.tokn`) whose user config
 lives in `~/.hermes`. Plugins are watched and hot reloaded, so a merged plugin
 reaches the machine without a rebuild.
 
-## The one rule
+## The one rule (student plugins)
 
 No billing. No ledgers. No provider keys. No gateway configuration. No LAN
 addresses (no `10.0.x.x`, no `127.0.0.1`). No `connection.json`. Anything a
 student builds here must render, brand, or describe a customer surface. If a
 change needs backend access, it belongs in the private runtime repo, not here.
+
+Core plugins under `core-plugins/` are maintainer and Hermes-owned. They may call
+runtime app RPC, but the secret, LAN, and connection-store bans still apply.
 
 See `CONTRIBUTING.md` for the full gate, and `docs/` for each contract.
 

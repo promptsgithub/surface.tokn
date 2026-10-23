@@ -36,12 +36,15 @@ jobs:
           const BANNED_LAN = /127\.0\.0\.1|\b10\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/;
 
           const plugins = walk('plugins').filter((p) => p.endsWith('.js'));
+          const core = fs.existsSync('core-plugins')
+            ? walk('core-plugins').filter((p) => p.endsWith('.js'))
+            : [];
           const data = [...walk('skins'), ...walk('branding')];
 
           let failed = false;
           const fail = (msg) => { failed = true; console.error('FAIL ' + msg); };
 
-          for (const file of plugins) {
+          for (const file of [...plugins, ...core]) {
             const source = fs.readFileSync(file, 'utf8');
             const block = source.match(/export\s+default\s*\{[\s\S]*?\n\}/);
             if (!block) { fail(`${file}: missing default export object`); continue; }
@@ -55,7 +58,11 @@ jobs:
               if (!ALLOWED.has(m[1])) fail(`${file}: import ${m[1]} not on allowlist`);
             }
 
-            for (const [label, re] of [['banned-word', BANNED_WORDS], ['banned-key', BANNED_KEYS], ['banned-lan', BANNED_LAN]]) {
+            const coreFile = file.startsWith('core-plugins/');
+            const rules = coreFile
+              ? [['banned-key', BANNED_KEYS], ['banned-lan', BANNED_LAN]]
+              : [['banned-word', BANNED_WORDS], ['banned-key', BANNED_KEYS], ['banned-lan', BANNED_LAN]];
+            for (const [label, re] of rules) {
               if (re.test(source)) fail(`${file}: ${label} scan`);
             }
           }
@@ -68,7 +75,7 @@ jobs:
           }
 
           if (failed) process.exit(1);
-          console.log(`ok: ${plugins.length} plugin(s), ${data.length} data file(s) validated`);
+          console.log(`ok: ${plugins.length + core.length} plugin(s), ${data.length} data file(s) validated`);
           EOF
 
       - name: Harness tests
