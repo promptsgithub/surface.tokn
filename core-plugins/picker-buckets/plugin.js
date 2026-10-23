@@ -1770,7 +1770,7 @@ function boot() {
 }
 
 export default {
-  id: ID,
+  id: 'picker-buckets',
   name: 'tokn picker buckets',
   defaultEnabled: true,
   register(ctx) {
