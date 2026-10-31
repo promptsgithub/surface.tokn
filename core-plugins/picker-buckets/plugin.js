@@ -542,13 +542,13 @@ function setStickyTop(root) {
   // Precise offset so the stripe/header is tight to the top of the content area,
   // right under the search bar, no gap (matching OpenCode sticky headers flush to top).
   // Calculate exact distance from root top to bottom of search area.
-  let searchArea = root.querySelector('[data-slot="dropdown-menu-search"]') ||
-                   root.querySelector('[data-slot="command-input"]') ||
-                   root.querySelector('[cmdk-input]') ||
-                   root.querySelector('input[type="text"]') ||
-                   root.querySelector('input') ||
-                   root.querySelector('[class*="search"]') ||
-                   root.querySelector('[class*="Search"]')
+  let searchArea = root.querySelector([data-slot="dropdown-menu-search"]) ||
+                   root.querySelector([data-slot="command-input"]) ||
+                   root.querySelector([cmdk-input]) ||
+                   root.querySelector(input[type="text"]) ||
+                   root.querySelector(input) ||
+                   root.querySelector([class*="search"]) ||
+                   root.querySelector([class*="Search"])
   let offset = 0
   if (searchArea) {
     const rootRect = root.getBoundingClientRect()
@@ -556,25 +556,15 @@ function setStickyTop(root) {
     offset = Math.max(0, Math.round(searchRect.bottom - rootRect.top))
     // small adjustment if needed for borders/padding to make it perfectly tight
     if (offset > 0) offset = offset - 1
-  } else {
-    // No search bar in this theme's DOM: pin to the first group's top edge
-    // (the headband sits flush there) instead of a guessed 36px that floats.
-    const firstGroup = root.querySelector('[data-tokn-stack-wrap], [data-tokn-metal-wrap], [data-slot="dropdown-menu-group"]')
-    if (firstGroup) {
-      const gr = firstGroup.getBoundingClientRect()
-      const rr = root.getBoundingClientRect()
-      offset = Math.max(0, Math.round(gr.top - rr.top))
-    }
-    if (offset <= 0) offset = 8
   }
-  root.style.setProperty('--tokn-sticky-top', offset + 'px')
+  root.style.setProperty(--tokn-sticky-top, offset + px)
   const scroller = scrollParent(root)
   if (scroller && scroller !== root) {
-    scroller.style.setProperty('--tokn-sticky-top', offset + 'px')
+    scroller.style.setProperty(--tokn-sticky-top, offset + px)
   }
 }
 
-function groupsOf(root) {
+
   return [...root.querySelectorAll('[data-slot="dropdown-menu-group"]')].filter(
     (g) => !g.hasAttribute('data-tokn-stack-wrap') && !g.hasAttribute('data-tokn-metal-wrap')
   )
@@ -1171,7 +1161,7 @@ function fillFleet(root) {
           }
           // The packaged picker does not always repaint the trigger after a
           // programmatic set; one renderer refresh makes the selection visible.
-          setTimeout(() => { try { window.location.reload() } catch (_) {} }, 250)
+          rewrite()
         } catch (err) { console.error('model switch failed', err) }
       })
       body.appendChild(row)
