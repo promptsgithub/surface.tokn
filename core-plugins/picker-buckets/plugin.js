@@ -1,263 +1,7 @@
 const ID = 'picker-buckets'
 
-const BRAND_THEMES = {
- "fruity": {
-  "name": "fruity",
-  "label": "Fruity",
-  "description": "Fruity \u2014 Apple-inspired",
-  "colors": {
-   "background": "#f5f5f7",
-   "foreground": "#1d1d1f",
-   "card": "#ffffff",
-   "cardForeground": "#1d1d1f",
-   "muted": "#e8e8ed",
-   "mutedForeground": "#6e6e73",
-   "popover": "#ffffff",
-   "popoverForeground": "#1d1d1f",
-   "primary": "#0071e3",
-   "primaryForeground": "#ffffff",
-   "secondary": "#e8e8ed",
-   "secondaryForeground": "#1d1d1f",
-   "accent": "#0071e3",
-   "accentForeground": "#ffffff",
-   "border": "#d2d2d7",
-   "input": "#d2d2d7",
-   "ring": "#0071e3",
-   "destructive": "#ff3b30",
-   "destructiveForeground": "#ffffff",
-   "sidebarBackground": "#f5f5f7",
-   "sidebarBorder": "#d2d2d7",
-   "userBubble": "#e8e8ed",
-   "userBubbleBorder": "#d2d2d7"
-  },
-  "darkColors": {
-   "background": "#1d1d1f",
-   "foreground": "#f5f5f7",
-   "card": "#2a2a2c",
-   "cardForeground": "#f5f5f7",
-   "muted": "#2a2a2c",
-   "mutedForeground": "#858585",
-   "popover": "#2a2a2c",
-   "popoverForeground": "#f5f5f7",
-   "primary": "#0071e3",
-   "primaryForeground": "#ffffff",
-   "secondary": "#2a2a2c",
-   "secondaryForeground": "#f5f5f7",
-   "accent": "#0071e3",
-   "accentForeground": "#ffffff",
-   "border": "#333333",
-   "input": "#333333",
-   "ring": "#0071e3",
-   "destructive": "#ff3b30",
-   "destructiveForeground": "#ffffff",
-   "sidebarBackground": "#1d1d1f",
-   "sidebarBorder": "#333333",
-   "userBubble": "#2a2a2c",
-   "userBubbleBorder": "#333333"
-  }
- },
- "classroom": {
-  "name": "classroom",
-  "label": "Classroom",
-  "description": "Classroom \u2014 Google-inspired",
-  "colors": {
-   "background": "#f8f9fa",
-   "foreground": "#202124",
-   "card": "#ffffff",
-   "cardForeground": "#202124",
-   "muted": "#f1f3f4",
-   "mutedForeground": "#5f6368",
-   "popover": "#ffffff",
-   "popoverForeground": "#202124",
-   "primary": "#1a73e8",
-   "primaryForeground": "#ffffff",
-   "secondary": "#f1f3f4",
-   "secondaryForeground": "#202124",
-   "accent": "#188038",
-   "accentForeground": "#ffffff",
-   "border": "#dadce0",
-   "input": "#dadce0",
-   "ring": "#1a73e8",
-   "destructive": "#ea4335",
-   "destructiveForeground": "#ffffff",
-   "sidebarBackground": "#f8f9fa",
-   "sidebarBorder": "#dadce0",
-   "userBubble": "#e8f0fe",
-   "userBubbleBorder": "#dadce0"
-  },
-  "darkColors": {
-   "background": "#202124",
-   "foreground": "#f8f9fa",
-   "card": "#2c3136",
-   "cardForeground": "#f8f9fa",
-   "muted": "#2c3136",
-   "mutedForeground": "#9aa0a6",
-   "popover": "#2c3136",
-   "popoverForeground": "#f8f9fa",
-   "primary": "#1a73e8",
-   "primaryForeground": "#ffffff",
-   "secondary": "#2c3136",
-   "secondaryForeground": "#f8f9fa",
-   "accent": "#188038",
-   "accentForeground": "#ffffff",
-   "border": "#3c4043",
-   "input": "#3c4043",
-   "ring": "#1a73e8",
-   "destructive": "#ea4335",
-   "destructiveForeground": "#ffffff",
-   "sidebarBackground": "#202124",
-   "sidebarBorder": "#3c4043",
-   "userBubble": "#2c3136",
-   "userBubbleBorder": "#3c4043"
-  }
- },
- "spacey": {
-  "name": "spacey",
-  "label": "Spacey",
-  "description": "Spacey \u2014 X-inspired",
-  "colors": {
-   "background": "#0f1419",
-   "foreground": "#eff3f4",
-   "card": "#1c2833",
-   "cardForeground": "#eff3f4",
-   "muted": "#1c2833",
-   "mutedForeground": "#829aab",
-   "popover": "#1c2833",
-   "popoverForeground": "#eff3f4",
-   "primary": "#1d9bf0",
-   "primaryForeground": "#ffffff",
-   "secondary": "#1c2833",
-   "secondaryForeground": "#eff3f4",
-   "accent": "#1d9bf0",
-   "accentForeground": "#ffffff",
-   "border": "#536471",
-   "input": "#536471",
-   "ring": "#1d9bf0",
-   "destructive": "#ef5350",
-   "destructiveForeground": "#ffffff",
-   "sidebarBackground": "#0f1419",
-   "sidebarBorder": "#536471",
-   "userBubble": "#1c2833",
-   "userBubbleBorder": "#536471"
-  },
-  "darkColors": {
-   "background": "#0f1419",
-   "foreground": "#eff3f4",
-   "card": "#1c2833",
-   "cardForeground": "#eff3f4",
-   "muted": "#1c2833",
-   "mutedForeground": "#829aab",
-   "popover": "#1c2833",
-   "popoverForeground": "#eff3f4",
-   "primary": "#1d9bf0",
-   "primaryForeground": "#ffffff",
-   "secondary": "#1c2833",
-   "secondaryForeground": "#eff3f4",
-   "accent": "#1d9bf0",
-   "accentForeground": "#ffffff",
-   "border": "#536471",
-   "input": "#536471",
-   "ring": "#1d9bf0",
-   "destructive": "#ef5350",
-   "destructiveForeground": "#ffffff",
-   "sidebarBackground": "#0f1419",
-   "sidebarBorder": "#536471",
-   "userBubble": "#1c2833",
-   "userBubbleBorder": "#536471"
-  }
- },
- "openai": {
-  "name": "openai",
-  "label": "OpenAI",
-  "description": "OpenAI-inspired",
-  "colors": {
-   "background": "#212121",
-   "foreground": "#ececec",
-   "card": "#2f2f2f",
-   "cardForeground": "#ececec",
-   "muted": "#2a2a2a",
-   "mutedForeground": "#b4b4b4",
-   "popover": "#2f2f2f",
-   "popoverForeground": "#ececec",
-   "primary": "#10a37f",
-   "primaryForeground": "#0b1a16",
-   "secondary": "#2a2a2a",
-   "secondaryForeground": "#ececec",
-   "accent": "#10a37f",
-   "accentForeground": "#0b1a16",
-   "border": "#444444",
-   "input": "#444444",
-   "ring": "#10a37f",
-   "destructive": "#ef4444",
-   "destructiveForeground": "#ffffff",
-   "sidebarBackground": "#1a1a1a",
-   "sidebarBorder": "#444444",
-   "userBubble": "#2a2a2a",
-   "userBubbleBorder": "#444444"
-  }
- },
- "anthropic": {
-  "name": "anthropic",
-  "label": "Anthropic",
-  "description": "Anthropic-inspired \u00b7 Linen",
-  "colors": {
-   "background": "#f7f4ef",
-   "foreground": "#14120b",
-   "card": "#fffcf7",
-   "cardForeground": "#14120b",
-   "muted": "#efe8dc",
-   "mutedForeground": "#6b6459",
-   "popover": "#fffcf7",
-   "popoverForeground": "#14120b",
-   "primary": "#c96442",
-   "primaryForeground": "#fffaf4",
-   "secondary": "#efe8dc",
-   "secondaryForeground": "#14120b",
-   "accent": "#c96442",
-   "accentForeground": "#fffaf4",
-   "border": "#e6dfd4",
-   "input": "#e6dfd4",
-   "ring": "#c96442",
-   "destructive": "#b42318",
-   "destructiveForeground": "#fffaf4",
-   "sidebarBackground": "#efe8dc",
-   "sidebarBorder": "#e6dfd4",
-   "userBubble": "#efe8dc",
-   "userBubbleBorder": "#e6dfd4"
-  }
- },
- "perplexity": {
-  "name": "perplexity",
-  "label": "Perplexity",
-  "description": "Perplexity-inspired",
-  "colors": {
-   "background": "#27251e",
-   "foreground": "#faf8f5",
-   "card": "#3d3a39",
-   "cardForeground": "#faf8f5",
-   "muted": "#3d3a39",
-   "mutedForeground": "#92918b",
-   "popover": "#2f2c26",
-   "popoverForeground": "#faf8f5",
-   "primary": "#016a71",
-   "primaryForeground": "#faf8f5",
-   "secondary": "#3d3a39",
-   "secondaryForeground": "#faf8f5",
-   "accent": "#016a71",
-   "accentForeground": "#faf8f5",
-   "border": "#72706b",
-   "input": "#d1d1cd",
-   "ring": "#016a71",
-   "destructive": "#ef5350",
-   "destructiveForeground": "#ffffff",
-   "sidebarBackground": "#27251e",
-   "sidebarBorder": "#72706b",
-   "userBubble": "#3d3a39",
-   "userBubbleBorder": "#72706b"
-  }
- }
-}
 const TITLES = {
+  media: 'sovereign.media.tokn',
   cloud: 'sovereign.cloud.tokn',
   global: 'sovereign.global.tokn',
   allied: 'sovereign.allied.tokn',
@@ -265,7 +9,7 @@ const TITLES = {
   moa: 'Mixture of Agents'
 }
 
-const ORDER = { cloud: 1, global: 2, allied: 3, metal: 4, moa: 5 }
+const ORDER = { media: 0, cloud: 1, global: 2, allied: 3, metal: 4, moa: 5 }
 
 const ORG_RANK = {
   ANTHROPIC: 1,
@@ -312,25 +56,20 @@ const CSS = `
     font-size: 12.5px !important;
     font-weight: 600 !important;
     line-height: 1.2 !important;
-    color: var(--foreground) !important;
-    background: var(--popover, #1a1a1d) !important;
-    background-color: var(--popover, #1a1a1d) !important;
+    color: var(--ui-text-primary, var(--foreground, #f0f0f0)) !important;
+    background: var(--ui-bg-elevated, var(--popover, #171a21)) !important;
+    background-color: var(--ui-bg-elevated, var(--popover, #171a21)) !important;
     padding: 5px 8px !important;
     cursor: pointer !important;
     opacity: 1 !important;
     position: sticky !important;
-    top: var(--tokn-sticky-top, 0) !important;
+    top: var(--tokn-sticky-top, 0px) !important;
     z-index: 35 !important;
     border-bottom: 1px solid var(--ui-border, #333) !important;
     box-shadow: none !important;
   }
   [data-tokn-stack-title]:hover {
-    background: var(--ui-control-hover-background, transparent) !important;
-  }
-  [data-tokn-stack-title][data-tokn-open="1"] {
-    position: relative !important;
-    top: auto !important;
-    z-index: 1 !important;
+    background: var(--ui-bg-elevated, var(--popover, #1c2029)) !important;
   }
   [data-tokn-label] {
     min-width: 0;
@@ -542,29 +281,35 @@ function setStickyTop(root) {
   // Precise offset so the stripe/header is tight to the top of the content area,
   // right under the search bar, no gap (matching OpenCode sticky headers flush to top).
   // Calculate exact distance from root top to bottom of search area.
-  let searchArea = root.querySelector([data-slot="dropdown-menu-search"]) ||
-                   root.querySelector([data-slot="command-input"]) ||
-                   root.querySelector([cmdk-input]) ||
-                   root.querySelector(input[type="text"]) ||
-                   root.querySelector(input) ||
-                   root.querySelector([class*="search"]) ||
-                   root.querySelector([class*="Search"])
-  let offset = 0
+  let searchArea = root.querySelector('[data-slot="dropdown-menu-search"]') ||
+                   root.querySelector('[data-slot="command-input"]') ||
+                   root.querySelector('[cmdk-input]') ||
+                   root.querySelector('input[type="text"]') ||
+                   root.querySelector('input') ||
+                   root.querySelector('[class*="search"]') ||
+                   root.querySelector('[class*="Search"]')
+  const scroller = scrollParent(root)
+  let rootOffset = 0
+  let scrollerOffset = 0
   if (searchArea) {
     const rootRect = root.getBoundingClientRect()
     const searchRect = searchArea.getBoundingClientRect()
-    offset = Math.max(0, Math.round(searchRect.bottom - rootRect.top))
-    // small adjustment if needed for borders/padding to make it perfectly tight
-    if (offset > 0) offset = offset - 1
+    rootOffset = Math.max(0, Math.round(searchRect.bottom - rootRect.top) - 1)
+    if (scroller && scroller !== root) {
+      // Scroller starts BELOW Search models already: offset relative to scroller top is 0px.
+      const scrollerRect = scroller.getBoundingClientRect()
+      scrollerOffset = Math.max(0, Math.round(searchRect.bottom - scrollerRect.top))
+    } else {
+      scrollerOffset = rootOffset
+    }
   }
-  root.style.setProperty(--tokn-sticky-top, offset + px)
-  const scroller = scrollParent(root)
+  root.style.setProperty('--tokn-sticky-top', rootOffset + 'px')
   if (scroller && scroller !== root) {
-    scroller.style.setProperty(--tokn-sticky-top, offset + px)
+    scroller.style.setProperty('--tokn-sticky-top', scrollerOffset + 'px')
   }
 }
 
-
+function groupsOf(root) {
   return [...root.querySelectorAll('[data-slot="dropdown-menu-group"]')].filter(
     (g) => !g.hasAttribute('data-tokn-stack-wrap') && !g.hasAttribute('data-tokn-metal-wrap')
   )
@@ -577,7 +322,7 @@ function titleOfGroup(group) {
     items.find((el) => el.hasAttribute('data-tokn-native')) ||
     items.find((el) => {
       const t = rawText(el)
-      return /^(allied|global|cloud|metal)\b/i.test(t) || /sovereign\.\w+\.tokn/i.test(t)
+      return /^(media|allied|global|cloud|metal)\b/i.test(t) || /sovereign\.\w+\.tokn/i.test(t)
     }) ||
     items[0]
   )
@@ -657,7 +402,7 @@ function orgFromText(text) {
   const t = String(text || '')
     .replace(/sovereign\.\w+\.tokn/gi, '')
     .replace(/mixture of agents/gi, '')
-    .replace(/^(global|allied|cloud|metal)\s+/i, '')
+    .replace(/^(media|global|allied|cloud|metal)\s+/i, '')
     .trim()
   if (/opencode|open code/i.test(t)) return null
   if (/anthropic|claude|\bopus\b|\bsonnet\b|\bhaiku\b|\bfable\b/i.test(t)) return 'ANTHROPIC'
@@ -725,6 +470,7 @@ function bucketOf(text) {
   if (/mixture of agents|\bmoa\b/i.test(t)) return 'moa'
   // Package / fleet prefix FIRST. "ALLIED GEMMA 4" must not fall through
   // to the mothership `gemma` → sota rule or Allied never wraps.
+  if (/sovereign\.media\.tokn|(^|\b)media\b/i.test(t)) return 'media'
   if (/sovereign\.metal\.tokn|(^|\s)metal(\s|$)|on metal|e2b|localhost|llama\.cpp|lm studio/i.test(t)) return 'metal'
   if (/sovereign\.global\.tokn|(^|\b)global\b|non allied/i.test(t)) return 'global'
   if (/sovereign\.allied\.tokn|(^|\b)allied\b/i.test(t)) return 'allied'
@@ -732,11 +478,11 @@ function bucketOf(text) {
   if (/zenlm|goody|optics-/i.test(t)) return 'hide'
   // Native mothership folders (Anthropic / OpenAI / Gemini / Grok).
   // Chrome: blend under sovereign.cloud.tokn so the sign is one Cloud.
-  // Routing stays the mothership provider for direct billing (our OpenAI accounts for SOTA).
+  // Routing stays the mothership provider for direct upstream routing.
   // Non-mothership / others: sovereign.cloud.tokn (OR with ZDR).
   // Do not put openai/* etc back on the OR list.
   // Gemini + Gemma both under GOOGLE. Bare "SOTA" chrome dropped.
-  // Direct OpenAI SOTA added via custom provider for visibility + direct billing.
+  // Direct OpenAI SOTA added via custom provider for visibility and direct routing.
   if (/^sota$/i.test(t)) return 'sota'
   if (/anthropic|claude|\bopus\b|\bsonnet\b|\bhaiku\b|\bfable\b/i.test(t)) return 'sota'
   if (/openai|\bgpt-|\bchatgpt\b|\bo1\b|\bo3\b|\bo4\b/i.test(t)) return 'sota'
@@ -1095,7 +841,8 @@ function fillMetal(wrap, open) {
 
 const FLEET_BUCKET = (tier) => {
   const t = String(tier || '').toLowerCase()
-  // Fabric labels and raw bucket names from the gateway.
+  // Fabric labels and raw bucket names from runtime config.
+  if (/^(media|sovereign\.media\.tokn|fal|replicate|seedance)$/.test(t)) return 'media'
   if (/^(cloud|sovereign\.cloud\.tokn|openrouter)$/.test(t)) return 'cloud'
   if (/^(global|sovereign\.global\.tokn)$/.test(t)) return 'global'
   if (/^(allied|sovereign\.allied\.tokn)$/.test(t)) return 'allied'
@@ -1105,7 +852,7 @@ const FLEET_BUCKET = (tier) => {
   return null
 }
 
-// Local sovereign lanes when the fleet gateway is unreachable. These are the
+// Local sovereign lanes when runtime config has not loaded yet. These are the
 // providers already present in the app config; direct rows bypass the native
 // submenu path, which is not selectable in the packaged picker.
 const FALLBACK_LANES = [
@@ -1123,7 +870,7 @@ function fillFleet(root) {
   const lanes = (sniff.lanes && sniff.lanes.length) ? sniff.lanes : FALLBACK_LANES
   if (!lanes.length) return
   const sig = JSON.stringify(lanes.map((l) => l.id + ':' + l.tier + ':' + (l.provider || '')))
-  for (const bucket of ['allied', 'global', 'cloud']) {
+  for (const bucket of ['media', 'allied', 'global', 'cloud']) {
     const body = root.querySelector(`[data-tokn-body="${bucket}"]`)
     if (!body || body.dataset.fleetSig === sig) continue
     body.dataset.fleetSig = sig
@@ -1161,7 +908,7 @@ function fillFleet(root) {
           }
           // The packaged picker does not always repaint the trigger after a
           // programmatic set; one renderer refresh makes the selection visible.
-          rewrite()
+          setTimeout(() => { try { window.location.reload() } catch (_) {} }, 250)
         } catch (err) { console.error('model switch failed', err) }
       })
       body.appendChild(row)
@@ -1193,8 +940,8 @@ function ensurePackage(root, parent, bucket) {
   }
   wrap.style.order = String(ORDER[bucket] * 10)
   const title = wrap.querySelector(':scope > [data-slot="dropdown-menu-item"]')
-  // If the fleet gateway is unreachable, do not render an empty picker. Open
-  // the native cloud package so its real models stay selectable.
+  // If runtime fleet lanes have not loaded yet, do not render an empty picker.
+  // Open the sovereign packages so real models stay selectable.
   const noFleet = !(sniff.lanes || []).length
   const open = searching(root) || expanded === bucket || expanded === 'all' || (noFleet && (bucket === 'global' || bucket === 'allied'))
   paintTitle(title, bucket, open)
@@ -1258,7 +1005,13 @@ async function pokeSniff() {
     const models = Array.isArray(cfg && cfg.models) ? cfg.models : []
     for (const id of models) {
       if (!id) continue
-      const tier = /allied/i.test(provider) ? 'allied' : /cloud|openrouter/i.test(provider) ? 'cloud' : 'global'
+      const tier = /media|fal|replicate|seedance/i.test(provider)
+        ? 'media'
+        : /allied/i.test(provider)
+          ? 'allied'
+          : /cloud|openrouter/i.test(provider)
+            ? 'cloud'
+            : 'global'
       lanes.push({
         id,
         provider,
@@ -1336,7 +1089,6 @@ function restoreSidebar() {
 function rewriteNow() {
   ensureStyle()
   restoreSidebar()
-  installBrandThemes()
   reorderSidebar()
   hideBadToknTheme()
   const roots = catalogs()
@@ -1374,6 +1126,9 @@ function rewriteNow() {
       cloud: ensurePackage(root, parent, 'cloud'),
       global: ensurePackage(root, parent, 'global'),
       allied: ensurePackage(root, parent, 'allied')
+    }
+    if ((sniff.lanes || []).some((l) => FLEET_BUCKET(l.tier) === 'media')) {
+      pkgs.media = ensurePackage(root, parent, 'media')
     }
     ensureMetal(root, parent)
     fillFleet(root)
@@ -1442,6 +1197,9 @@ function rewriteNow() {
         }
         continue
       }
+      if (bucket === 'media' && !pkgs.media) {
+        pkgs.media = ensurePackage(root, parent, 'media')
+      }
       if (!pkgs[bucket]) {
         hide(group, true)
         continue
@@ -1500,7 +1258,7 @@ function rewriteNow() {
       if (!title) continue
       if (title.hasAttribute('data-tokn-stack-title') || title.hasAttribute('data-tokn-org')) continue
       const t = title.getAttribute('data-tokn-native') || rawText(title)
-      if (/sovereign\.(global|allied|cloud|metal)\.tokn/i.test(t)) hide(title, true)
+      if (/sovereign\.(media|global|allied|cloud|metal)\.tokn/i.test(t)) hide(title, true)
     }
 
     if (opening) {
@@ -1530,7 +1288,7 @@ function rewriteNow() {
       const title = titleOfGroup(group)
       const native = (title && (title.getAttribute('data-tokn-native') || rawText(title))) || ''
       const bucket = bucketOf(native)
-      if ((bucket === 'allied' || bucket === 'global' || bucket === 'cloud') && !group.closest('[data-tokn-body]')) {
+      if ((bucket === 'media' || bucket === 'allied' || bucket === 'global' || bucket === 'cloud') && !group.closest('[data-tokn-body]')) {
         looseFleet += 1
       }
     }
@@ -1663,21 +1421,6 @@ function maybeUnhideMotherships() {
 }
 
 
-function installBrandThemes() {
-  try {
-    const key = 'hermes-desktop-user-themes-v1'
-    const current = JSON.parse(window.localStorage.getItem(key) || '{}')
-    let changed = false
-    for (const [name, theme] of Object.entries(BRAND_THEMES)) {
-      if (JSON.stringify(current[name]) !== JSON.stringify(theme)) { current[name] = theme; changed = true }
-    }
-    if (changed) {
-      window.localStorage.setItem(key, JSON.stringify(current))
-      setTimeout(() => window.location.reload(), 900)
-    }
-  } catch {}
-}
-
 function reorderSidebar() {
   const items = Array.from(document.querySelectorAll('li'))
   const newItem = items.find((li) => /New session/i.test(li.innerText || ''))
@@ -1717,7 +1460,7 @@ function boot() {
     const k = 'hermes.desktop.visible-models'
     const raw = window.localStorage.getItem(k) || ''
     const hasFleet =
-      /custom:|Global Qwen|Glimmer|Inkling|Lightning|sovereign\.(cloud|global|allied|metal)|allied/i.test(raw)
+      /custom:|Global Qwen|Glimmer|Inkling|Lightning|sovereign\.(media|cloud|global|allied|metal)|allied/i.test(raw)
     if (raw && !hasFleet) {
       window.localStorage.removeItem(k)
     }

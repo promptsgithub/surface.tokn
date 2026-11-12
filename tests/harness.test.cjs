@@ -7,6 +7,7 @@
  * always works in CI.
  */
 const assert = require('node:assert/strict');
+const { execFileSync } = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 const { test } = require('node:test');
@@ -30,6 +31,10 @@ function walk(dir, out = []) {
 }
 
 const PLUGIN_FILES = walk(path.join(ROOT, 'plugins')).filter((p) => p.endsWith('.js'));
+const CORE_PLUGIN_FILES = fs.existsSync(path.join(ROOT, 'core-plugins'))
+  ? walk(path.join(ROOT, 'core-plugins')).filter((p) => p.endsWith('.js'))
+  : [];
+const ALL_PLUGIN_FILES = [...PLUGIN_FILES, ...CORE_PLUGIN_FILES];
 const DATA_FILES = [
   ...walk(path.join(ROOT, 'skins')),
   ...walk(path.join(ROOT, 'branding')),
@@ -45,9 +50,20 @@ const BANNED_WORDS = /\b(billing|ledger|gateway)\b/i;
 const BANNED_KEYS = /\b(api_key|apikey|connection\.json)\b/i;
 const BANNED_LAN = /127\.0\.0\.1|\b10\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/;
 
+test('every plugin and core-plugin passes node ESM syntax check', () => {
+  assert.ok(ALL_PLUGIN_FILES.length >= 4, 'expected plugins and core-plugins');
+  for (const file of ALL_PLUGIN_FILES) {
+    const source = fs.readFileSync(file, 'utf8');
+    execFileSync(process.execPath, ['--input-type=module', '--check'], {
+      input: source,
+      stdio: ['pipe', 'pipe', 'pipe'],
+    });
+  }
+});
+
 test('every plugin exports a valid HermesPlugin shape', () => {
   assert.ok(PLUGIN_FILES.length >= 3, 'expected template plus examples');
-  for (const file of PLUGIN_FILES) {
+  for (const file of ALL_PLUGIN_FILES) {
     const source = fs.readFileSync(file, 'utf8');
     const block = source.match(/export\s+default\s*\{[\s\S]*?\n\}/);
     assert.ok(block, `${file} must have a default export object`);
@@ -58,7 +74,7 @@ test('every plugin exports a valid HermesPlugin shape', () => {
 });
 
 test('plugins import only the allowlist', () => {
-  for (const file of PLUGIN_FILES) {
+  for (const file of ALL_PLUGIN_FILES) {
     const source = fs.readFileSync(file, 'utf8');
     const imports = source.match(/^\s*import\b[^\n]*/gm) || [];
     for (const stmt of imports) {
@@ -72,12 +88,17 @@ test('plugins import only the allowlist', () => {
   }
 });
 
-test('plugins, skins, and branding contain no banned content', () => {
+test('plugins, core-plugins, skins, and branding contain no banned content', () => {
   const targets = [...PLUGIN_FILES, ...DATA_FILES];
   assert.ok(targets.length > 0, 'expected files to scan');
   for (const file of targets) {
     const source = fs.readFileSync(file, 'utf8');
     assert.doesNotMatch(source, BANNED_WORDS, `${file} mentions a banned identifier`);
+    assert.doesNotMatch(source, BANNED_KEYS, `${file} mentions a key or connection store`);
+    assert.doesNotMatch(source, BANNED_LAN, `${file} mentions a LAN address`);
+  }
+  for (const file of CORE_PLUGIN_FILES) {
+    const source = fs.readFileSync(file, 'utf8');
     assert.doesNotMatch(source, BANNED_KEYS, `${file} mentions a key or connection store`);
     assert.doesNotMatch(source, BANNED_LAN, `${file} mentions a LAN address`);
   }

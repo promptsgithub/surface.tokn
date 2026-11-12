@@ -15,9 +15,10 @@ jobs:
         with:
           node-version: 22
 
-      - name: Validate plugin shape, imports, and banned content
+      - name: Validate plugin syntax, shape, imports, and banned content
         run: |
           node - <<'EOF'
+          const { execFileSync } = require('node:child_process');
           const fs = require('node:fs');
           const path = require('node:path');
 
@@ -46,6 +47,16 @@ jobs:
 
           for (const file of [...plugins, ...core]) {
             const source = fs.readFileSync(file, 'utf8');
+            try {
+              execFileSync(process.execPath, ['--input-type=module', '--check'], {
+                input: source,
+                stdio: ['pipe', 'pipe', 'pipe'],
+              });
+            } catch (err) {
+              const detail = (err.stderr && err.stderr.toString().trim()) || err.message;
+              fail(`${file}: JS module syntax check failed: ${detail}`);
+              continue;
+            }
             const block = source.match(/export\s+default\s*\{[\s\S]*?\n\}/);
             if (!block) { fail(`${file}: missing default export object`); continue; }
             if (!/id:\s*['"][^'"]+['"]/.test(block[0])) fail(`${file}: default export needs id`);
